@@ -52,7 +52,7 @@ const TodoContainer = () => {
     setTodos([...todos, newTodo]);
   };
 
-  const showAlert = async () => {
+  const showAlert = () => {
     setHidden(false);
     setTimeout(() => {
       setHidden(true);
