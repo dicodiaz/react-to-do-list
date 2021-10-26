@@ -1,8 +1,13 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# React setup
+# React To Do App
 
-This is a simple yet powerful React boilerplate for later use as a starting point in other projects. It derives from `create-react-app` with a few modifications, which include installing StyleLint, ESLint, and Bootstrap, removing unimportant files, and adding some content to the remaining files.
+React To Do App is a tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete. This simple website is built using React and Bootstrap, and it has the following features:
+
+- Adding a new item.
+- Removing an added item.
+- Editing a selected item.
+- Marking a selected item as complete.
 
 ## Mobile
 
@@ -17,22 +22,25 @@ This is a simple yet powerful React boilerplate for later use as a starting poin
 - React
 - Bootstrap
 - VSCode
-- Git & GitHub
+- Gitflow & GitHub
+
+## Live Demo
+
+[Live Demo Link](https://dicodiaz.me/react-todo-app/)
 
 ## Getting Started
 
-To get React up and running in another project, follow these simple steps:
+To get this project up and running, follow these simple steps:
 
 1. Clone the repository into your machine (Or download the .zip file and extract).
 2. Open the project's folder.
-3. Copy and paste all files and folders except app_screenshot.png, app_screenshot-2.png, MIT.md, and README.md into the other project's root folder.
-4. Run `npm install`
-5. Run `npm start`
+3. Run `npm install`
+4. Run `npm start`
 
-### Considerations
+### Prerequisites
 
-- Intended only for use as a starting point in other projects. Do not copy and paste these files into more mature projects as this will overwrite your package.json and package-lock.json files.
-- This project also includes Bootstrap for styling.
+- Any modern web browser.
+- Any source-code editor (VSCode recommended).
 
 ### Setup
 
@@ -55,6 +63,11 @@ Feel free to check the [issues page](../../issues/).
 ## Show your support
 
 Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- ibaslogic's [React Tutorial From Scratch](https://ibaslogic.com/react-tutorial-for-beginners/)
+- [Microverse](https://www.microverse.org)
 
 ## 📝 License
 
