@@ -70,10 +70,10 @@ const TodoContainer = () => {
       <Navbar />
       <Switch>
         <Route exact path="/">
-          <main className="bg-dark text-white min-vh-100 d-flex flex-column justify-content-center">
-            <div className="container-md">
-              <div className="row mx-0 justify-content-center">
-                <div className="col-md-9">
+          <main className="bg-dark text-white min-vh-100 pt-5">
+            <div className="container-md pt-4">
+              <div className="row mx-0 justify-content-end justify-content-md-center">
+                <div className="col-11 col-md-9">
                   <Header />
                   <InputTodo addTodoItemProps={addTodoItem} showAlert={showAlert} />
                   <TodosList
