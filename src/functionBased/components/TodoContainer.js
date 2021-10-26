@@ -1,8 +1,12 @@
 import { useEffect, useState } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import About from '../pages/About';
+import NotMatch from '../pages/NotMatch';
 import Alert from './Alert';
 import Header from './Header';
 import InputTodo from './InputTodo';
+import Navbar from './Navbar';
 import TodosList from './TodosList';
 
 const TodoContainer = () => {
@@ -63,23 +67,34 @@ const TodoContainer = () => {
 
   return (
     <>
-      <main className="bg-dark text-white min-vh-100 d-flex flex-column justify-content-center">
-        <div className="container-md">
-          <div className="row mx-0 justify-content-center">
-            <div className="col-md-9">
-              <Header />
-              <InputTodo addTodoItemProps={addTodoItem} showAlert={showAlert} />
-              <TodosList
-                todos={todos}
-                handleChangeProps={handleChange}
-                deleteTodoProps={delTodo}
-                setUpdate={setUpdate}
-              />
-              <Alert hidden={hidden} />
+      <Navbar />
+      <Switch>
+        <Route exact path="/">
+          <main className="bg-dark text-white min-vh-100 d-flex flex-column justify-content-center">
+            <div className="container-md">
+              <div className="row mx-0 justify-content-center">
+                <div className="col-md-9">
+                  <Header />
+                  <InputTodo addTodoItemProps={addTodoItem} showAlert={showAlert} />
+                  <TodosList
+                    todos={todos}
+                    handleChangeProps={handleChange}
+                    deleteTodoProps={delTodo}
+                    setUpdate={setUpdate}
+                  />
+                  <Alert hidden={hidden} />
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </main>
+          </main>
+        </Route>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="*">
+          <NotMatch />
+        </Route>
+      </Switch>
     </>
   );
 };
