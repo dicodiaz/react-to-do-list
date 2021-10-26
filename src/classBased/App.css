@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.4;
+  color: #444;
+  background: #fff;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.inner {
+  width: 100%;
+  padding: 8rem 10px 4rem;
+}
+
+.form-container {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.input-text {
+  flex: 7.5;
+  font-size: 1rem;
+  padding: 0px 15px;
+  border: 1px solid #f0f0f0;
+  font-weight: 400;
+  max-width: 80%;
+  margin-right: 10px;
+  padding: 0 15px;
+}
+
+.input-text::placeholder {
+  color: #000;
+}
+
+.input-submit {
+  flex: 2.5;
+  border: none;
+  background: #d7d7d7;
+  color: #5b5b5b;
+  text-transform: capitalize;
+  cursor: pointer;
+  font-weight: 600;
+  width: 20%;
+}
+
+.input-text,
+.input-submit {
+  height: 45px;
+  outline: none;
+  box-shadow: 0 1px 6px 0 rgba(168, 167, 167, 0.28);
+  border-radius: calc(0.5 * 100px);
+}

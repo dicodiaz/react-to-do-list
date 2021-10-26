@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 
 const Alert = (props) => {
-  const { hiddenProps } = props;
-  const classes = ['alert', 'alert-warning'];
-  if (hiddenProps) classes.push('d-none');
+  const { hidden } = props;
+  const classes = ['alert', 'alert-warning', 'text-center'];
+  if (hidden) classes.push('d-none');
   return (
     <div className={classes.join(' ')} role="alert">
       Please write item
@@ -12,7 +12,7 @@ const Alert = (props) => {
 };
 
 Alert.propTypes = {
-  hiddenProps: PropTypes.bool.isRequired,
+  hidden: PropTypes.bool.isRequired,
 };
 
 export default Alert;

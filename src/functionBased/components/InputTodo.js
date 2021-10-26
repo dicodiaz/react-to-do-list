@@ -1,21 +1,29 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { FaPlusCircle } from 'react-icons/fa';
 
 const InputTodo = (props) => {
-  const { addTodoItemProps, showAlertProps } = props;
-  const [title, setTitle] = useState('');
+  const { addTodoItemProps, showAlert } = props;
+  const [inputText, setInputText] = useState({
+    title: '',
+  });
 
   const onChange = (e) => {
-    setTitle(e.target.value);
+    setInputText((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (title.trim()) {
-      addTodoItemProps(title);
-      setTitle('');
+    if (inputText.title.trim()) {
+      addTodoItemProps(inputText.title);
+      setInputText({
+        title: '',
+      });
     } else {
-      showAlertProps();
+      showAlert();
     }
   };
 
@@ -23,13 +31,14 @@ const InputTodo = (props) => {
     <form onSubmit={handleSubmit} className="form-container">
       <input
         type="text"
+        name="title"
         className="form-control input-text"
         placeholder="Add Todo..."
-        value={title}
+        value={inputText.title}
         onChange={onChange}
       />
       <button type="submit" className="btn input-submit">
-        Submit
+        <FaPlusCircle className="text-dark" style={{ fontSize: '25px', marginTop: '2px' }} />
       </button>
     </form>
   );
@@ -37,7 +46,7 @@ const InputTodo = (props) => {
 
 InputTodo.propTypes = {
   addTodoItemProps: PropTypes.func.isRequired,
-  showAlertProps: PropTypes.func.isRequired,
+  showAlert: PropTypes.func.isRequired,
 };
 
 export default InputTodo;

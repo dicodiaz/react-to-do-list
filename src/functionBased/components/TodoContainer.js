@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Alert from './Alert';
 import Header from './Header';
@@ -6,7 +6,7 @@ import InputTodo from './InputTodo';
 import TodosList from './TodosList';
 
 const TodoContainer = () => {
-  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem('todos')));
+  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem('todos')) || []);
   const [hidden, setHidden] = useState(true);
 
   useEffect(() => {
@@ -14,8 +14,8 @@ const TodoContainer = () => {
   }, [todos]);
 
   const handleChange = (id) => {
-    setTodos(
-      todos.map((todo) => {
+    setTodos((prevState) =>
+      prevState.map((todo) => {
         if (todo.id === id) {
           return {
             ...todo,
@@ -28,7 +28,7 @@ const TodoContainer = () => {
   };
 
   const delTodo = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
+    setTodos((prevState) => prevState.filter((todo) => todo.id !== id));
   };
 
   const addTodoItem = (title) => {
@@ -37,19 +37,12 @@ const TodoContainer = () => {
       title,
       completed: false,
     };
-    setTodos([...todos, newTodo]);
-  };
-
-  const showAlert = () => {
-    setHidden(false);
-    setTimeout(() => {
-      setHidden(true);
-    }, 2000);
+    setTodos((prevState) => [...prevState, newTodo]);
   };
 
   const setUpdate = (updatedTitle, id) => {
-    setTodos(
-      todos.map((todo) => {
+    setTodos((prevState) =>
+      prevState.map((todo) => {
         if (todo.id === id) {
           return {
             ...todo,
@@ -61,28 +54,33 @@ const TodoContainer = () => {
     );
   };
 
+  const showAlert = () => {
+    setHidden(false);
+    setTimeout(() => {
+      setHidden(true);
+    }, 2000);
+  };
+
   return (
-    // <React.Fragment>
     <>
       <main className="bg-dark text-white min-vh-100 d-flex flex-column justify-content-center">
         <div className="container-md">
           <div className="row mx-0 justify-content-center">
             <div className="col-md-9">
               <Header />
-              <InputTodo addTodoItemProps={addTodoItem} showAlertProps={showAlert} />
+              <InputTodo addTodoItemProps={addTodoItem} showAlert={showAlert} />
               <TodosList
                 todos={todos}
                 handleChangeProps={handleChange}
                 deleteTodoProps={delTodo}
                 setUpdate={setUpdate}
               />
-              <Alert hiddenProps={hidden} />
+              <Alert hidden={hidden} />
             </div>
           </div>
         </div>
       </main>
     </>
-    // </React.Fragment>
   );
 };
 
