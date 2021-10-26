@@ -59,6 +59,20 @@ const TodoContainer = () => {
     }, 2000);
   };
 
+  const setUpdate = (updatedTitle, id) => {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            title: updatedTitle,
+          };
+        }
+        return todo;
+      }),
+    );
+  };
+
   return (
     // <React.Fragment>
     <>
@@ -68,7 +82,12 @@ const TodoContainer = () => {
             <div className="col-md-9">
               <Header />
               <InputTodo addTodoItemProps={addTodoItem} showAlertProps={showAlert} />
-              <TodosList todos={todos} handleChangeProps={handleChange} deleteTodoProps={delTodo} />
+              <TodosList
+                todos={todos}
+                handleChangeProps={handleChange}
+                deleteTodoProps={delTodo}
+                setUpdate={setUpdate}
+              />
               <Alert hiddenProps={hidden} />
             </div>
           </div>
