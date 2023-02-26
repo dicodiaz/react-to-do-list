@@ -1,8 +1,8 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# React To Do App
+# React To Do List
 
-React To Do App is a tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete. This simple website is built using React and Bootstrap, and it has the following features:
+React To Do List is a tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete. This simple website is built using React and Bootstrap, and it has the following features:
 
 - Adding a new item.
 - Removing an added item.
